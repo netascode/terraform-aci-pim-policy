@@ -24,7 +24,7 @@ resource "aci_rest_managed" "rtdmcRsFilterToRtMapPol_neighbor_filter" {
   dn         = "${aci_rest_managed.pimNbrFilterPol[0].dn}/rsfilterToRtMapPol"
   class_name = "rtdmcRsFilterToRtMapPol"
   content = {
-    tDn = "uni/tn-${var.tenant}/rtmap-${var.join_prune_filter_policy_in}"
+    tDn = "uni/tn-${var.tenant}/rtmap-${var.neighbor_filter_policy}"
   }
 }
 
