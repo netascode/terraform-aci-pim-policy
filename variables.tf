@@ -30,17 +30,6 @@ variable "auth_key" {
 }
 
 variable "auth_type" {
-  description = "PIM Policy Authorization Type. Valid values are: `none` or `ah-md5`. Default value is `none`."
-  type        = string
-  default     = "none"
-
-  validation {
-    condition     = contains(["none", "ah-md5"], var.auth_type)
-    error_message = "Valid values are: `none` or `ah-md5`."
-  }
-}
-
-variable "auth_type" {
   description = "PIM Policy Authorization Type. Valid values are: `none` or `ah-md5`."
   type        = string
   default     = "none"
@@ -63,7 +52,7 @@ variable "passive" {
   default     = false
 }
 
-variable "passive" {
+variable "strict_rfc" {
   description = "PIM Policy Multicast Strict RFC Compliant Flag."
   type        = bool
   default     = false
