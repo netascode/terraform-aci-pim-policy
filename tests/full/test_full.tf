@@ -22,7 +22,6 @@ module "main" {
   source                       = "../.."
   name                         = "FULL_POL"
   tenant                       = aci_rest_managed.fvTenant.content.name
-  auth_key                     = "myKey"
   auth_type                    = "ah-md5"
   mcast_dom_boundary           = true
   passive                      = true
@@ -37,7 +36,7 @@ module "main" {
 }
 
 data "aci_rest_managed" "pimIfPol" {
-  dn = "uni/tn-${aci_rest_managed.fvTenant.content.name}/pimifpol-MIN_POL"
+  dn = "uni/tn-${aci_rest_managed.fvTenant.content.name}/pimifpol-FULL_POL"
 
   depends_on = [module.main]
 }
@@ -55,7 +54,7 @@ resource "test_assertions" "pimIfPol" {
   equal "authKey" {
     description = "authKey"
     got         = data.aci_rest_managed.pimIfPol.content.authKey
-    want        = "myKey"
+    want        = ""
   }
 
   equal "authT" {
@@ -129,7 +128,7 @@ resource "test_assertions" "rtdmcRsFilterToRtMapPol_join_prune_filter_out" {
 }
 
 data "aci_rest_managed" "rtdmcRsFilterToRtMapPol_join_prune_filter_in" {
-  dn = "uni/tn-${aci_rest_managed.fvTenant.content.name}/pimifpol-FULL_POL/jpintbfilter/rsfilterToRtMapPol"
+  dn = "uni/tn-${aci_rest_managed.fvTenant.content.name}/pimifpol-FULL_POL/jpinbfilter/rsfilterToRtMapPol"
 
   depends_on = [module.main]
 }
