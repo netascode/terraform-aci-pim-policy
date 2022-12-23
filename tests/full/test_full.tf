@@ -107,7 +107,7 @@ resource "test_assertions" "rtdmcRsFilterToRtMapPol_neighbor_filter" {
 
   equal "tDn" {
     description = "tDn"
-    got         = data.aci_rest_managed.pimIfPol.content.tDn
+    got         = data.aci_rest_managed.rtdmcRsFilterToRtMapPol_neighbor_filter.content.tDn
     want        = "uni/tn-${aci_rest_managed.fvTenant.content.name}/rtmap-NEIGH_RM"
   }
 }
@@ -123,7 +123,7 @@ resource "test_assertions" "rtdmcRsFilterToRtMapPol_join_prune_filter_out" {
 
   equal "tDn" {
     description = "tDn"
-    got         = data.aci_rest_managed.pimIfPol.content.tDn
+    got         = data.aci_rest_managed.rtdmcRsFilterToRtMapPol_join_prune_filter_out.content.tDn
     want        = "uni/tn-${aci_rest_managed.fvTenant.content.name}/rtmap-OUT_RM"
   }
 }
@@ -139,7 +139,7 @@ resource "test_assertions" "rtdmcRsFilterToRtMapPol_join_prune_filter_in" {
 
   equal "tDn" {
     description = "tDn"
-    got         = data.aci_rest_managed.pimIfPol.content.tDn
+    got         = data.aci_rest_managed.rtdmcRsFilterToRtMapPol_join_prune_filter_in.content.tDn
     want        = "uni/tn-${aci_rest_managed.fvTenant.content.name}/rtmap-IN_RM"
   }
 }
