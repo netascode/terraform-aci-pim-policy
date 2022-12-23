@@ -11,6 +11,9 @@ resource "aci_rest_managed" "pimIfPol" {
     helloItvl  = var.hello_interval
     jpInterval = var.join_prune_interval
   }
+  lifecycle {
+    ignore_changes = [content["authKey"]]
+  }
 }
 
 resource "aci_rest_managed" "pimNbrFilterPol" {
