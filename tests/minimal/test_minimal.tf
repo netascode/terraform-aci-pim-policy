@@ -1,5 +1,5 @@
 terraform {
-  required_version = ">= 1.3.0"
+  required_version = ">= 1.0.0"
 
   required_providers {
     test = {
@@ -29,7 +29,6 @@ data "aci_rest_managed" "pimIfPol" {
 
   depends_on = [module.main]
 }
-
 
 resource "test_assertions" "pimIfPol" {
   component = "pimIfPol"
@@ -81,5 +80,4 @@ resource "test_assertions" "pimIfPol" {
     got         = data.aci_rest_managed.pimIfPol.content.jpInterval
     want        = "60"
   }
-
 }

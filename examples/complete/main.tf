@@ -1,4 +1,4 @@
-module "aci_scaffolding" {
+module "aci_pim_policy" {
   source  = "netascode/pim-policy/aci"
   version = ">= 0.1.0"
 

@@ -1,15 +1,5 @@
-variable "name" {
-  description = "PIM Policy name."
-  type        = string
-
-  validation {
-    condition     = can(regex("^[a-zA-Z0-9_.-]{0,64}$", var.name))
-    error_message = "Allowed characters: `a`-`z`, `A`-`Z`, `0`-`9`, `_`, `.`, `-`. Maximum characters: 64."
-  }
-}
-
 variable "tenant" {
-  description = "PIM Policy's Tenant name."
+  description = "Tenant name."
   type        = string
 
   validation {
@@ -18,8 +8,18 @@ variable "tenant" {
   }
 }
 
+variable "name" {
+  description = "PIM policy name."
+  type        = string
+
+  validation {
+    condition     = can(regex("^[a-zA-Z0-9_.-]{0,64}$", var.name))
+    error_message = "Allowed characters: `a`-`z`, `A`-`Z`, `0`-`9`, `_`, `.`, `-`. Maximum characters: 64."
+  }
+}
+
 variable "auth_key" {
-  description = "PIM Policy Authorization Key."
+  description = "PIM policy authorization key."
   type        = string
   default     = ""
 
@@ -30,36 +30,36 @@ variable "auth_key" {
 }
 
 variable "auth_type" {
-  description = "PIM Policy Authorization Type. Valid values are: `none` or `ah-md5`."
+  description = "PIM policy authorization type. Allowed values are: `none` or `ah-md5`."
   type        = string
   default     = "none"
 
   validation {
     condition     = contains(["none", "ah-md5"], var.auth_type)
-    error_message = "Valid values are: `none` or `ah-md5`."
+    error_message = "Allowed values are: `none` or `ah-md5`."
   }
 }
 
 variable "mcast_dom_boundary" {
-  description = "PIM Policy Multicast Domain Boundary Flag."
+  description = "PIM policy multicast domain boundary flag."
   type        = bool
   default     = false
 }
 
 variable "passive" {
-  description = "PIM Policy Multicast Passive Flag."
+  description = "PIM policy multicast passive flag."
   type        = bool
   default     = false
 }
 
 variable "strict_rfc" {
-  description = "PIM Policy Multicast Strict RFC Compliant Flag."
+  description = "PIM policy Mmlticast strict RFC compliant flag."
   type        = bool
   default     = false
 }
 
 variable "designated_router_delay" {
-  description = "PIM Policy Designated Router Delay (seconds)."
+  description = "PIM policy designated router delay (seconds)."
   type        = number
   default     = 3
 
@@ -70,7 +70,7 @@ variable "designated_router_delay" {
 }
 
 variable "designated_router_priority" {
-  description = "PIM Policy Multicast Designated Router Priority."
+  description = "PIM policy multicast designated router priority."
   type        = number
   default     = 1
 
@@ -81,7 +81,7 @@ variable "designated_router_priority" {
 }
 
 variable "hello_interval" {
-  description = "PIM Policy Multicast Hello Interval (milliseconds)."
+  description = "PIM policy multicast hello interval (milliseconds)."
   type        = number
   default     = 30000
 
@@ -92,7 +92,7 @@ variable "hello_interval" {
 }
 
 variable "join_prune_interval" {
-  description = "PIM Policy Join Prune Interval (seconds)."
+  description = "PIM policy join prune interval (seconds)."
   type        = number
   default     = 60
 
@@ -103,7 +103,7 @@ variable "join_prune_interval" {
 }
 
 variable "neighbor_filter_policy" {
-  description = "PIM Policy Interface-Level Neighbor Filter Policy."
+  description = "PIM policy interface-level neighbor filter policy."
   type        = string
   default     = ""
 
@@ -114,7 +114,7 @@ variable "neighbor_filter_policy" {
 }
 
 variable "join_prune_filter_policy_out" {
-  description = "PIM Policy Interface-Level Outbound Join-Prune Filter Policy."
+  description = "PIM policy interface-level outbound join-prune filter policy."
   type        = string
   default     = ""
 
@@ -125,7 +125,7 @@ variable "join_prune_filter_policy_out" {
 }
 
 variable "join_prune_filter_policy_in" {
-  description = "PIM Policy Interface-Level Inbound Join-Prune Filter Policy."
+  description = "PIM policy interface-level inbound join-prune filter policy."
   type        = string
   default     = ""
 
