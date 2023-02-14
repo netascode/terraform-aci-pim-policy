@@ -22,6 +22,7 @@ variable "auth_key" {
   description = "PIM policy authorization key."
   type        = string
   default     = ""
+  sensitive   = true
 
   validation {
     condition     = can(regex("^[a-zA-Z0-9_.-]{0,130}$", var.auth_key))
