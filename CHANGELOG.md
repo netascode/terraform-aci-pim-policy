@@ -1,4 +1,4 @@
-## 0.1.2 (unreleased)
+## 0.1.2
 
 - Use `secureAuthKey` instead of `authKey` attribute to fix compatibility issue with ACI 6.0.x
 
