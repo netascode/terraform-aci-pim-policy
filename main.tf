@@ -2,14 +2,14 @@ resource "aci_rest_managed" "pimIfPol" {
   dn         = "uni/tn-${var.tenant}/pimifpol-${var.name}"
   class_name = "pimIfPol"
   content = {
-    name       = var.name
-    authKey    = var.auth_key
-    authT      = var.auth_type
-    ctrl       = join(",", concat(var.mcast_dom_boundary == true ? ["border"] : [], var.passive == true ? ["passive"] : [], var.strict_rfc == true ? ["strict-rfc-compliant"] : []))
-    drDelay    = var.designated_router_delay
-    drPrio     = var.designated_router_priority
-    helloItvl  = var.hello_interval
-    jpInterval = var.join_prune_interval
+    name          = var.name
+    secureAuthKey = var.auth_key
+    authT         = var.auth_type
+    ctrl          = join(",", concat(var.mcast_dom_boundary == true ? ["border"] : [], var.passive == true ? ["passive"] : [], var.strict_rfc == true ? ["strict-rfc-compliant"] : []))
+    drDelay       = var.designated_router_delay
+    drPrio        = var.designated_router_priority
+    helloItvl     = var.hello_interval
+    jpInterval    = var.join_prune_interval
   }
   lifecycle {
     ignore_changes = [content["authKey"]]
